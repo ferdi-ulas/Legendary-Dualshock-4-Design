@@ -1,0 +1,217 @@
+/* Font Add */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap");
+
+/* Global Styles */
+* {
+  font-family: "Montserrat", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --all-transition: 1s ease;
+  --opacity-transition: 0.3s ease;
+}
+
+/* Body Styling */
+body {
+  background: #3674be;
+  min-height: 100vh;
+  transition: var(--all-transition);
+  overflow: hidden;
+}
+
+body::after {
+  content: "";
+  position: absolute;
+  top: 63%;
+  transform: translateY(63%);
+  left: 3.5%;
+  width: 800px;
+  height: 800px;
+  background: rgb(255, 255, 255, 0.8);
+  border-radius: 50%;
+  filter: blur(200px);
+}
+
+/* Image Container Styling */
+.img-box {
+  position: absolute;
+  top: 5%;
+  left: -2%;
+  transform: translate(-45%);
+  width: 1300px;
+  height: 1300px;
+}
+
+/* Image List Styling */
+.img-box .img-list {
+  height: inherit;
+  transform: rotate(-120deg);
+}
+
+/* Image Slider Container */
+.img-list .img-slider {
+  height: inherit;
+  position: relative;
+  transition: var(--all-transition);
+}
+
+/* Individual Image Item Styling */
+.img-slider .img-item {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-65%) rotate(calc(-360deg / 6 * var(--i))) scale(0.8);
+  transform-origin: 650px;
+  z-index: 1; /* Default z-index */
+  transition: var(--all-transition);
+}
+
+/* Active Image Item Styling */
+.img-item.active {
+  transform: translateY(-10%) rotate(calc(-360deg / 6 * var(--i))) scale(1)
+    translateX(-31%);
+  z-index: 100;
+  bottom: 40%;
+  right: 75%;
+}
+
+/* Image Container within Item */
+.img-item .item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: var(--all-transition);
+}
+
+/* Image Styling within Item */
+.img-item .item img {
+  transform: rotate(calc(360deg / 6 * var(--i))) rotate(120deg);
+  filter: blur(8px);
+  transition: var(--all-transition);
+}
+
+/* Active Image Styling */
+.img-item.active .item img {
+  filter: blur(0);
+}
+
+.info-box {
+  position: absolute;
+  right: 0;
+  top: 20%;
+  width: 600px;
+  height: 600px;
+}
+
+.info-box .info-item.active {
+  transform: translateX(0);
+  box-shadow: 0 0 30px rgb(0, 0, 0, 0.2);
+  opacity: 1;
+}
+
+.info-item {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  box-shadow: none;
+  opacity: 0;
+  border-radius: 40px 0 0 40px;
+  padding: 0 70px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transform: translateX(100%);
+  transition: transform var(--all-transition), opacity var(--opacity-transition),
+    box-shadow var(--all-transition);
+}
+
+.info-item h2 {
+  font-size: 30px;
+}
+
+.info-item h2:nth-child(2) {
+  margin: 20px 0;
+}
+
+.colors span {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.colors span.active {
+  outline: 3px solid #fff;
+}
+
+.colors span:nth-child(1) {
+  background: #3674be;
+}
+
+.colors span:nth-child(2) {
+  background: #d26181;
+}
+
+.colors span:nth-child(3) {
+  background: #ceb13d;
+}
+
+.colors span:nth-child(4) {
+  background: #c6414c;
+}
+
+.colors span:nth-child(5) {
+  background: #171f26;
+}
+
+.colors span:nth-child(6) {
+  background: #50aa61;
+}
+
+.info-item p {
+  font-size: 16px;
+  margin: 20px 0 25px;
+}
+
+.info-item .btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 180px;
+  height: 47px;
+  background: #fff;
+  border-radius: 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  color: #333;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.navigation {
+  position: absolute;
+  left: 26%;
+  bottom: 7%;
+  width: 200px;
+  display: flex;
+  justify-content: space-between;
+  z-index: 100;
+}
+
+.navigation span {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 70px;
+  height: 70px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 55px;
+  color: #fff;
+}
